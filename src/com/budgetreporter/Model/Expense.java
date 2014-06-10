@@ -4,11 +4,11 @@
 package com.budgetreporter.Model;
 
 /**
- * Billing class
+ * Expense class
  * 
  * @author Jacky
  *
  */
-public class Billing {
+public class Expense {
 
 }

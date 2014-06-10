@@ -12,7 +12,7 @@ package com.budgetreporter.Model;
 public class User {
 	
 	private String username;
-	private int uid;
+	private int user_id;
 	private String lastname;
 	private String firstname;
 	
@@ -31,13 +31,13 @@ public class User {
 	}
 
 	/* Getter function for uid */
-	public int getUid() {
-		return uid;
+	public int getUser_id() {
+		return user_id;
 	}
 
 	/* Setter function for uid */
-	public void setUid(int uid) {
-		this.uid = uid;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	/* Getter function for lastname */
