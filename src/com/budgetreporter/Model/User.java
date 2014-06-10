@@ -16,7 +16,9 @@ public class User {
 	private String lastname;
 	private String firstname;
 	
-	// Class constructor
+	/**
+	 * User class constructor
+	 */
 	public User(){
 	}
 	
