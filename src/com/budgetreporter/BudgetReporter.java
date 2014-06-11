@@ -4,6 +4,7 @@
 package com.budgetreporter;
 
 import com.budgetreporter.DB.DBOperations;
+import com.budgetreporter.View.LoginView;
 
 /**
  * Entry for the application
@@ -13,14 +14,22 @@ import com.budgetreporter.DB.DBOperations;
  */
 public class BudgetReporter {
 	
-	public BudgetReporter(){}
+	public BudgetReporter(){
+		//Schedule a job for the event-dispatching thread:
+        //creating and showing this application's GUI.
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+            	LoginView lv = new LoginView();
+            	lv.setVisible(true);
+            }
+        });
+	}
 
 	public static void main(String[] args) {
-		System.out.println("Hi");
-		run();
+		start();
 	}
 	
-	public static void run(){
+	public static void start(){
 		BudgetReporter br = new BudgetReporter();
 		//DBOperations op = new DBOperations();
 		//op.connectToAndQueryDatabaseTest();
