@@ -11,8 +11,9 @@ package com.budgetreporter.Model;
  */
 public class User {
 	
-	private String username;
 	private int user_id;
+	private String username;
+	private String password;
 	private String lastname;
 	private String firstname;
 	
@@ -30,6 +31,16 @@ public class User {
 	/* Setter function for username */
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	/* Getter function for password */
+	public String getPassword() {
+		return password;
+	}
+
+	/* Setter function for password */
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	/* Getter function for uid */
