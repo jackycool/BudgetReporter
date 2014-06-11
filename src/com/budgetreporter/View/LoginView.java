@@ -11,20 +11,16 @@ import javax.swing.*;
  * @author jacky
  *
  */
-public class LoginView extends JFrame{
+public class LoginView extends JPanel{
 	
 	public LoginView(){
-		super("User Login");
+        //Create and set up the panel.
+		super();
 		initUI();
 	}
 	
 	public void initUI(){
-        //Create and set up the window.
-        Container contentPane = this.getContentPane();
-        JPanel panel = new JPanel();
-        contentPane.add(panel);
-        
-        panel.setLayout(null);
+        this.setLayout(null);
 
         //Add the "login" label
         JLabel loginLabel = new JLabel("Login");
@@ -52,17 +48,13 @@ public class LoginView extends JFrame{
         JButton loginButton = new JButton("Login");
         loginButton.setBounds(180, 100, 100, 30);
         
-        panel.add(loginLabel);
-        panel.add(usernameLabel);
-        panel.add(usernameTextField);
-        panel.add(passwordLabel);
-        panel.add(passwordTextField);
-        panel.add(loginButton);
+        this.add(loginLabel);
+        this.add(usernameLabel);
+        this.add(usernameTextField);
+        this.add(passwordLabel);
+        this.add(passwordTextField);
+        this.add(loginButton);
         
-        this.setSize(300, 200);
-        this.setLocation(10, 200);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         System.out.println("Login page created");		
 	}
 }
