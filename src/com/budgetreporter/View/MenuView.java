@@ -6,6 +6,8 @@ package com.budgetreporter.View;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -44,6 +46,7 @@ public class MenuView extends JPanel{
 
         //Add the "Quit" button
         JButton quitButton = new JButton("Quit");
+        quitButton.addActionListener(new QuitButtonListener());
 
         this.add(profileButton);
         this.add(viewReportButton);
@@ -54,4 +57,12 @@ public class MenuView extends JPanel{
         System.out.println("Menu page created");		
 	}
 
+	private class QuitButtonListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		    System.exit(0);
+		}
+	}
+
 }
+
