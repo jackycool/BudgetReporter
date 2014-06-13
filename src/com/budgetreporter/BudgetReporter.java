@@ -3,10 +3,14 @@
  */
 package com.budgetreporter;
 
-import javax.swing.JFrame;
+import java.awt.CardLayout;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import com.budgetreporter.Controller.MenuViewController;
 import com.budgetreporter.DB.DBOperations;
-import com.budgetreporter.View.LoginView;
+import com.budgetreporter.View.*;
 
 /**
  * Entry for the application
@@ -14,13 +18,37 @@ import com.budgetreporter.View.LoginView;
  * @author jacky
  *
  */
-public class BudgetReporter extends JFrame{
+public class BudgetReporter{
 	
 	public BudgetReporter(){
-		super("BudgetReporter");
-        this.setSize(300, 200);
-        this.setLocation(10, 200);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public static void createAndShowGUI(){
+		JFrame mainFrame = new JFrame();
+    	// Setup Frame
+		mainFrame.setSize(300, 500);
+		mainFrame.setLocation(10, 200);
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		// Create a contentPane to use cardlayout
+		JPanel contentPane = new JPanel();
+		contentPane.setLayout(new CardLayout());
+		
+        // Adding entry to the frame
+    	//LoginView loginPage = new LoginView();
+    	//br.add(loginPage);
+    	MenuView menuPage = new MenuView(contentPane);
+    	MenuViewController menuControl = new MenuViewController(menuPage);
+    	ReportMenuView reportMenuPage = new ReportMenuView();
+    	
+    	// Add views to contentPane
+    	contentPane.add(menuPage, "MenuView");
+    	contentPane.add(reportMenuPage, "ReportMenuView");
+    	
+    	// Set the contentPane to frame
+    	mainFrame.setContentPane(contentPane);
+    	
+    	mainFrame.setVisible(true);
 	}
 
 	public static void main(String[] args) {
@@ -28,10 +56,7 @@ public class BudgetReporter extends JFrame{
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-            	BudgetReporter br = new BudgetReporter();
-            	LoginView loginPage = new LoginView();
-            	br.add(loginPage);
-            	br.setVisible(true);
+            	createAndShowGUI();
             }
         });
 	}

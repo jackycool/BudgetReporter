@@ -22,47 +22,86 @@ import javax.swing.JTextField;
  *
  */
 public class MenuView extends JPanel{
-	
-	public MenuView(){
+
+	// Components
+	private JPanel contentPane;
+    private JButton m_viewReportButton;
+    private JButton m_newExpenseButton;
+    private JButton m_newIncomeButton;
+    private JButton m_viewProfileButton;
+    private JButton m_quitButton;
+
+    public MenuView(JPanel contentPane){
 		super();
+		this.contentPane = contentPane;
 		initUI();
+        System.out.println("Menu page created");		
 	}
 	
+    /**
+     * Initialise all UI components of the view
+     */
 	public void initUI(){
 		GridLayout gLayout = new GridLayout(0,1);
 		this.setLayout(gLayout);
+		
+		// Initialise UI components
+		m_viewReportButton = new JButton("View Report");
+		m_newExpenseButton = new JButton("New Expense");
+		m_newIncomeButton = new JButton("New Income");
+		m_viewProfileButton = new JButton("Profile");
+		m_quitButton = new JButton("Quit");
+		
+		// Add components
+        this.add(m_viewReportButton);
+        this.add(m_newExpenseButton);
+        this.add(m_newIncomeButton);
+        this.add(m_viewProfileButton);
+        this.add(m_quitButton);
         
-        //Add the "View Report" button
-        JButton viewReportButton = new JButton("View Report");
-
-        //Add the "New Expense" button
-        JButton newExpenseButton = new JButton("New Expense");
-        
-        //Add the "New Income" button
-        JButton newIncomeButton = new JButton("New Income");
-        
-        //Add the "Profile" button
-        JButton profileButton = new JButton("Profile");
-
-        //Add the "Quit" button
-        JButton quitButton = new JButton("Quit");
-        quitButton.addActionListener(new QuitButtonListener());
-
-        this.add(profileButton);
-        this.add(viewReportButton);
-        this.add(newExpenseButton);
-        this.add(newIncomeButton);
-        this.add(quitButton);
-        
-        System.out.println("Menu page created");		
+	}
+	
+	public JPanel getContentPane(){
+		return this.contentPane;
+	}
+	
+	/**
+	 * Add viewReportButton listener
+	 * @param viewReport
+	 */
+	public void addViewReportButtonListener(ActionListener viewReportAction){
+		m_viewReportButton.addActionListener(viewReportAction);
+	}
+	
+	/**
+	 * Add newExpenseButton listener
+	 * @param newExpenseAction
+	 */
+	public void addNewExpenseButtonListener(ActionListener newExpenseAction){
+		m_newExpenseButton.addActionListener(newExpenseAction);
 	}
 
-	private class QuitButtonListener implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-		    System.exit(0);
-		}
+	/**
+	 * Add newIncomeButton listener
+	 * @param newIncomeAction
+	 */
+	public void addNewIncomeButtonListener(ActionListener newIncomeAction){
+		m_newIncomeButton.addActionListener(newIncomeAction);
 	}
 
+	/**
+	 * Add viewProfileButton listener
+	 * @param viewProfileAction
+	 */
+	public void addViewProfileActionListener(ActionListener viewProfileAction){
+		m_viewProfileButton.addActionListener(viewProfileAction);
+	}
+
+	/** 
+	 * Add quit button listener
+	 * @param quit
+	 */
+	public void addQuitButtonListener(ActionListener quit){
+		m_quitButton.addActionListener(quit);
+	}
 }
-
