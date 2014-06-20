@@ -79,7 +79,7 @@ public class LoginView extends JPanel{
 
 	/**
 	 * Add viewReportButton listener
-	 * @param viewReport
+	 * @param loginAction
 	 */
 	public void addLoginButtonListener(ActionListener loginAction){
 		m_loginButton.addActionListener(loginAction);

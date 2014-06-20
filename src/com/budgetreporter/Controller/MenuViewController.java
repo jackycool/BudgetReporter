@@ -7,16 +7,20 @@ import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.budgetreporter.View.EntryDetailView;
 import com.budgetreporter.View.MenuView;
 
 public class MenuViewController {
 	
 	private MenuView m_menuView;
+	private JFrame m_mainFrame;
 
-	public MenuViewController(MenuView menu){
+	public MenuViewController(MenuView menu, JFrame frame){
 		m_menuView = menu;
+		m_mainFrame = frame;
 		
 		// Add listeners to the buttons
 		m_menuView.addViewReportButtonListener(new ViewReportButtonListener());
@@ -48,7 +52,11 @@ public class MenuViewController {
 		@Override
 		public void actionPerformed(ActionEvent e){
 			System.out.println("newExpenseButton clicked");
-			//TODO: newExpenseButtonAction
+			
+			m_mainFrame.setVisible(false);
+			EntryDetailView newExpense = new EntryDetailView("New Expense");
+			EntryDetailViewController entryControl = 
+					new EntryDetailViewController(newExpense, m_mainFrame);
 		}
 	}
 	
@@ -56,7 +64,8 @@ public class MenuViewController {
 		@Override
 		public void actionPerformed(ActionEvent e){
 			System.out.println("newIncomeButton clicked");
-			//TODO: newIncomeButtonAction 
+
+			EntryDetailView newExpense = new EntryDetailView("New Income");
 		}
 	}
 	

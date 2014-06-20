@@ -39,7 +39,7 @@ public class BudgetReporter{
     	MenuView menuPage = new MenuView(contentPane);
     	ReportMenuView reportMenuPage = new ReportMenuView(contentPane);
     	LoginViewController loginControl = new LoginViewController(loginPage);
-    	MenuViewController menuControl = new MenuViewController(menuPage);
+    	MenuViewController menuControl = new MenuViewController(menuPage, mainFrame);
     	ReportMenuViewController reportMenuControl = 
     			new ReportMenuViewController(reportMenuPage);
     	
