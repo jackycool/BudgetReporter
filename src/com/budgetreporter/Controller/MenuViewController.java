@@ -13,17 +13,17 @@ import com.budgetreporter.View.MenuView;
 
 public class MenuViewController {
 	
-	private MenuView _menuView;
+	private MenuView m_menuView;
 
 	public MenuViewController(MenuView menu){
-		_menuView = menu;
+		m_menuView = menu;
 		
 		// Add listeners to the buttons
-		_menuView.addViewReportButtonListener(new ViewReportButtonListener());
-		_menuView.addNewExpenseButtonListener(new FileExpenseButtonListener());
-		_menuView.addNewIncomeButtonListener(new FileIncomeButtonListener());
-		_menuView.addViewProfileActionListener(new viewProfileButtonListener());
-		_menuView.addQuitButtonListener(new QuitButtonListener());
+		m_menuView.addViewReportButtonListener(new ViewReportButtonListener());
+		m_menuView.addNewExpenseButtonListener(new FileExpenseButtonListener());
+		m_menuView.addNewIncomeButtonListener(new FileIncomeButtonListener());
+		m_menuView.addViewProfileActionListener(new ViewProfileButtonListener());
+		m_menuView.addQuitButtonListener(new QuitButtonListener());
 
 		System.out.println("Created MenuViewController");
 	}
@@ -32,15 +32,13 @@ public class MenuViewController {
 	 * Inner class of MenuViewController                                       *
 	 **************************************************************************/
 	/**
-	 * When viewReportButton is clicked, dispose current view and bring up the
-	 * reportDetailView page up
+	 * When viewReportButton is clicked, switch ReportDetailView panel
 	 */
 	private class ViewReportButtonListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e){
 			System.out.println("viewReportButton clicked");
-			//TODO: viewReportButtonAction
-			JPanel contentPane = _menuView.getContentPane();
+			JPanel contentPane = m_menuView.getContentPane();
 			CardLayout cardLayout = (CardLayout) contentPane.getLayout();
             cardLayout.show(contentPane, "ReportMenuView");
 		}
@@ -62,11 +60,14 @@ public class MenuViewController {
 		}
 	}
 	
-	private class viewProfileButtonListener implements ActionListener{
+	/**
+	 * When viewProfileButton is clicked, switch UserProfileView panel
+	 */
+	private class ViewProfileButtonListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e){
 			System.out.println("viewProfileButton clicked");
-			//TODO: viewProfileButtonAction 
+			//TODO: viewProfileButtonAction
 		}
 	}
 	

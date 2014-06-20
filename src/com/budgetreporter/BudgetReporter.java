@@ -8,7 +8,7 @@ import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.budgetreporter.Controller.MenuViewController;
+import com.budgetreporter.Controller.*;
 import com.budgetreporter.DB.DBOperations;
 import com.budgetreporter.View.*;
 
@@ -34,14 +34,15 @@ public class BudgetReporter{
 		JPanel contentPane = new JPanel();
 		contentPane.setLayout(new CardLayout());
 		
-        // Adding entry to the frame
-    	//LoginView loginPage = new LoginView();
-    	//br.add(loginPage);
+        // Create all views
+    	LoginView loginPage = new LoginView(contentPane);
     	MenuView menuPage = new MenuView(contentPane);
+    	LoginViewController loginControl = new LoginViewController(loginPage);
     	MenuViewController menuControl = new MenuViewController(menuPage);
     	ReportMenuView reportMenuPage = new ReportMenuView();
     	
     	// Add views to contentPane
+    	contentPane.add(loginPage, "LoginView");
     	contentPane.add(menuPage, "MenuView");
     	contentPane.add(reportMenuPage, "ReportMenuView");
     	

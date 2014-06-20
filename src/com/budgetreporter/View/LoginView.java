@@ -5,6 +5,7 @@ package com.budgetreporter.View;
 
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.*; 
 
@@ -14,6 +15,7 @@ import javax.swing.*;
  */
 public class LoginView extends JPanel{
 	
+	private JPanel contentPane;
 	private JLabel m_loginLabel;
 	private JLabel m_usernameLabel;
 	private JTextField m_usernameTextField;
@@ -21,10 +23,12 @@ public class LoginView extends JPanel{
 	private JTextField m_passwordTextField;
 	private JButton m_loginButton;
 	
-	public LoginView(){
+	public LoginView(JPanel contentPane){
         //Create and set up the panel.
 		super();
+		this.contentPane = contentPane;
 		initUI();
+		System.out.println("LoginView created");
 	}
 	
 	public void initUI(){
@@ -64,4 +68,21 @@ public class LoginView extends JPanel{
         
         System.out.println("Login page created");		
 	}
+	
+	/**
+	 * Return the current contentPane
+	 * @return contentPane
+	 */
+	public JPanel getContentPane(){
+		return this.contentPane;
+	}
+
+	/**
+	 * Add viewReportButton listener
+	 * @param viewReport
+	 */
+	public void addLoginButtonListener(ActionListener loginAction){
+		m_loginButton.addActionListener(loginAction);
+	}
+
 }
