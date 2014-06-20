@@ -65,7 +65,10 @@ public class MenuViewController {
 		public void actionPerformed(ActionEvent e){
 			System.out.println("newIncomeButton clicked");
 
-			EntryDetailView newExpense = new EntryDetailView("New Income");
+			m_mainFrame.setVisible(false);
+			EntryDetailView newIncome = new EntryDetailView("New Income");
+			EntryDetailViewController entryControl = 
+					new EntryDetailViewController(newIncome, m_mainFrame);
 		}
 	}
 	
