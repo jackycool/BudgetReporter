@@ -37,9 +37,11 @@ public class BudgetReporter{
         // Create all views
     	LoginView loginPage = new LoginView(contentPane);
     	MenuView menuPage = new MenuView(contentPane);
+    	ReportMenuView reportMenuPage = new ReportMenuView(contentPane);
     	LoginViewController loginControl = new LoginViewController(loginPage);
     	MenuViewController menuControl = new MenuViewController(menuPage);
-    	ReportMenuView reportMenuPage = new ReportMenuView();
+    	ReportMenuViewController reportMenuControl = 
+    			new ReportMenuViewController(reportMenuPage);
     	
     	// Add views to contentPane
     	contentPane.add(loginPage, "LoginView");
