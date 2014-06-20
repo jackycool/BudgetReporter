@@ -53,10 +53,10 @@ public class MenuView extends JPanel{
 		m_quitButton = new JButton("Quit");
 		
 		// Add components
-        this.add(m_viewReportButton);
+        //this.add(m_viewReportButton);
         this.add(m_newExpenseButton);
         this.add(m_newIncomeButton);
-        this.add(m_viewProfileButton);
+        //this.add(m_viewProfileButton);
         this.add(m_quitButton);
         
 	}
