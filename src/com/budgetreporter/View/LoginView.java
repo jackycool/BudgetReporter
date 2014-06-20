@@ -4,6 +4,7 @@
 package com.budgetreporter.View;
 
 import java.awt.Container;
+import java.awt.GridLayout;
 
 import javax.swing.*; 
 
@@ -13,6 +14,13 @@ import javax.swing.*;
  */
 public class LoginView extends JPanel{
 	
+	private JLabel m_loginLabel;
+	private JLabel m_usernameLabel;
+	private JTextField m_usernameTextField;
+	private JLabel m_passwordLabel;
+	private JTextField m_passwordTextField;
+	private JButton m_loginButton;
+	
 	public LoginView(){
         //Create and set up the panel.
 		super();
@@ -20,40 +28,39 @@ public class LoginView extends JPanel{
 	}
 	
 	public void initUI(){
-        this.setLayout(null);
+		GridLayout gLayout = new GridLayout(0,1);
+		this.setLayout(gLayout);
 
-        //Add the "login" label
-        JLabel loginLabel = new JLabel("Login");
-        loginLabel.setBounds(0, 0, 100, 20);
-        
+		//Add the "login" label
+        m_loginLabel = new JLabel("Login");
+		
+		JPanel innerPanel = new JPanel();
+		GridLayout innerLayout = new GridLayout(0,2);
+		innerPanel.setLayout(innerLayout);
+		
         //Add the "Username" label
-        JLabel usernameLabel = new JLabel("Username: ");
-        usernameLabel.setBounds(0, 40, 100, 20);
-
+        m_usernameLabel = new JLabel("Username: ");
         //Add the "Username" Textfield
-        JTextField usernameTextField = new JTextField();
-        usernameTextField.setEditable(true);
-        usernameTextField.setBounds(100, 40, 100, 20);
-        
+        m_usernameTextField = new JTextField();
+        m_usernameTextField.setEditable(true);
         //Add the "password" label
-        JLabel passwordLabel = new JLabel("Password: ");
-        passwordLabel.setBounds(0, 60, 100, 20);
-        
+        m_passwordLabel = new JLabel("Password: ");
         //Add the "password" Textfield
-        JTextField passwordTextField = new JTextField();
-        passwordTextField.setEditable(true);
-        passwordTextField.setBounds(100, 60, 100, 20);
-
+        m_passwordTextField = new JTextField();
+        m_passwordTextField.setEditable(true);
         //Add the "login" button
-        JButton loginButton = new JButton("Login");
-        loginButton.setBounds(180, 100, 100, 30);
+        m_loginButton = new JButton("Login");
         
-        this.add(loginLabel);
-        this.add(usernameLabel);
-        this.add(usernameTextField);
-        this.add(passwordLabel);
-        this.add(passwordTextField);
-        this.add(loginButton);
+        //Adding components to inner container
+        innerPanel.add(m_usernameLabel);
+        innerPanel.add(m_usernameTextField);
+        innerPanel.add(m_passwordLabel);
+        innerPanel.add(m_passwordTextField);
+        
+        // Adding components to outer container
+        this.add(m_loginLabel);
+        this.add(innerPanel);
+        this.add(m_loginButton);
         
         System.out.println("Login page created");		
 	}
