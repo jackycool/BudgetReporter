@@ -61,6 +61,10 @@ public class MenuView extends JPanel{
         
 	}
 	
+	/**
+	 * Return the current contentPane
+	 * @return contentPane
+	 */
 	public JPanel getContentPane(){
 		return this.contentPane;
 	}
